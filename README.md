@@ -144,7 +144,7 @@ A complete ERP for a plastic manufacturing business covering production, invento
 
 ## 🎓 Education & Certification
 
-- **Bachelor's in Software Engineering**, The Islamia University of Bahawalpur (2020 – 2024)
+- **Bachelor's in Software Engineering**, Virtual University (2020 – 2024)
 - **Claude Code 101**, Anthropic (AI-assisted software engineering)
 
 ---
