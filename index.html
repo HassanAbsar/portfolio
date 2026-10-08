@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hassan Absar | Full-Stack Developer & ERP Solutions</title>
+  <meta name="description" content="Portfolio of Hassan Absar - Full-Stack Developer specializing in web applications, CRM systems, and enterprise solutions for Industry4EIT." />
+  <style>
+    :root{
+      --bg:#07111f;
+      --text:#e6eefb;
+      --muted:#a6b6cc;
+      --primary:#6cc3ff;
+      --accent:#8ef0c8;
+      --line:rgba(255,255,255,0.09);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background:linear-gradient(135deg, #07111f 0%, #0b1628 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{
+      width:min(1200px, calc(100% - 40px));
+      margin:0 auto;
+    }
+    header{
+      position:sticky;
+      top:0;
+      backdrop-filter:blur(12px);
+      background:rgba(7,17,31,0.8);
+      border-bottom:1px solid var(--line);
+      z-index:100;
+    }
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      min-height:70px;
+    }
+    .logo{
+      font-weight:800;
+      font-size:1.1rem;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+    }
+    .nav-links{
+      display:flex;
+      gap:32px;
+      font-size:0.95rem;
+      color:var(--muted);
+    }
+    .nav-links a:hover{
+      color:var(--primary);
+      transition:color 0.3s ease;
+    }
+    section{
+      padding:80px 0;
+      border-bottom:1px solid var(--line);
+    }
+    section:last-child{
+      border-bottom:none;
+    }
+    h2{
+      font-size:clamp(2rem, 5vw, 3.2rem);
+      letter-spacing:-0.05em;
+      margin:0 0 40px;
+      background:linear-gradient(135deg, var(--text), var(--primary));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    .hero{
+      padding:120px 0 80px;
+    }
+    .hero-content{
+      max-width:800px;
+    }
+    .tagline{
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      font-size:0.85rem;
+      font-weight:700;
+      margin-bottom:20px;
+    }
+    .hero h1{
+      font-size:clamp(3rem, 7vw, 5rem);
+      line-height:1.1;
+      margin:0 0 24px;
+      letter-spacing:-0.08em;
+    }
+    .hero-subtitle{
+      font-size:1.15rem;
+      color:var(--muted);
+      margin-bottom:32px;
+      line-height:1.7;
+    }
+    .cta-buttons{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:60px;
+    }
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      border-radius:10px;
+      font-weight:700;
+      border:2px solid transparent;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      text-align:center;
+      font-size:0.95rem;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg, var(--primary), #4ea8de);
+      color:#04131d;
+    }
+    .btn-primary:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 32px rgba(108, 195, 255, 0.3);
+    }
+    .btn-secondary{
+      background:transparent;
+      border-color:var(--line);
+      color:var(--text);
+    }
+    .btn-secondary:hover{
+      border-color:var(--primary);
+      color:var(--primary);
+    }
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+      margin-top:60px;
+    }
+    .stat-card{
+      background:rgba(19, 39, 63, 0.5);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:24px;
+      text-align:center;
+    }
+    .stat-number{
+      font-size:2.5rem;
+      font-weight:800;
+      color:var(--primary);
+      margin-bottom:8px;
+    }
+    .stat-label{
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+    .about-grid{
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:48px;
+      align-items:start;
+    }
+    .about-text{
+      display:grid;
+      gap:16px;
+    }
+    .about-text p{
+      color:var(--muted);
+      font-size:1rem;
+      line-height:1.8;
+    }
+    .tech-stack{
+      background:rgba(19, 39, 63, 0.5);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:32px;
+    }
+    .tech-title{
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:0.1em;
+      font-size:0.8rem;
+      font-weight:700;
+      margin-bottom:16px;
+    }
+    .tech-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .tag{
+      background:rgba(108, 195, 255, 0.15);
+      border:1px solid rgba(108, 195, 255, 0.3);
+      color:var(--primary);
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:0.85rem;
+      font-weight:600;
+    }
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:32px;
+    }
+    .project-card{
+      background:linear-gradient(135deg, rgba(19, 39, 63, 0.6), rgba(12, 21, 33, 0.8));
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:32px;
+      transition:all 0.3s ease;
+      display:flex;
+      flex-direction:column;
+    }
+    .project-card:hover{
+      transform:translateY(-8px);
+      border-color:var(--primary);
+      box-shadow:0 20px 48px rgba(108, 195, 255, 0.15);
+    }
+    .project-badge{
+      display:inline-block;
+      background:rgba(142, 240, 200, 0.15);
+      border:1px solid rgba(142, 240, 200, 0.3);
+      color:var(--accent);
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:0.75rem;
+      font-weight:700;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      width:fit-content;
+      margin-bottom:12px;
+    }
+    .project-card h3{
+      font-size:1.6rem;
+      margin:12px 0 12px 0;
+      letter-spacing:-0.03em;
+    }
+    .project-card p{
+      color:var(--muted);
+      margin:0 0 20px;
+      flex-grow:1;
+      line-height:1.7;
+    }
+    .project-meta{
+      display:grid;
+      gap:14px;
+      border-top:1px solid var(--line);
+      padding-top:20px;
+    }
+    .meta-item{
+      display:grid;
+      gap:4px;
+    }
+    .meta-label{
+      font-size:0.75rem;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      color:var(--primary);
+      font-weight:700;
+    }
+    .meta-value{
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+    .experience-timeline{
+      display:grid;
+      gap:24px;
+    }
+    .timeline-item{
+      background:rgba(19, 39, 63, 0.5);
+      border-left:4px solid var(--primary);
+      border-radius:12px;
+      padding:24px;
+      transition:all 0.3s ease;
+    }
+    .timeline-item:hover{
+      background:rgba(19, 39, 63, 0.7);
+      transform:translateX(8px);
+    }
+    .timeline-item .role{
+      color:var(--accent);
+      text-transform:uppercase;
+      font-size:0.75rem;
+      font-weight:700;
+      letter-spacing:0.08em;
+      margin-bottom:8px;
+    }
+    .timeline-item h3{
+      font-size:1.3rem;
+      margin:0 0 8px;
+    }
+    .timeline-item p{
+      color:var(--muted);
+      margin:0;
+      line-height:1.7;
+    }
+    footer{
+      padding:40px 0;
+      border-top:1px solid var(--line);
+      text-align:center;
+      color:var(--muted);
+    }
+    footer a{
+      color:var(--primary);
+    }
+    footer a:hover{
+      text-decoration:underline;
+    }
+    @media (max-width:768px){
+      .stats-grid, .projects-grid, .about-grid{
+        grid-template-columns:1fr;
+      }
+      .nav-links{
+        display:none;
+      }
+      .hero-content{
+        max-width:100%;
+      }
+      h2{
+        font-size:1.8rem;
+      }
+      section{
+        padding:60px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Hassan Absar</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="tagline">Full-Stack Developer • Business Solutions • ERP</div>
+          <h1>Crafting reliable digital systems that power business operations.</h1>
+          <p class="hero-subtitle">
+            I build scalable web applications, enterprise dashboards, and operational platforms that help teams manage workflows, improve efficiency, and drive growth. Specialized in PHP/Laravel, CRM systems, and Industry4EIT solutions.
+          </p>
+          <div class="cta-buttons">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number">6+</div>
+              <div class="stat-label">Production Projects</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Business Impact</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">50K+</div>
+              <div class="stat-label">Lines of Code</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I'm a full-stack developer with a passion for solving real business problems through clean code and thoughtful design. Over the years, I've worked on diverse projects ranging from small CRM systems to large-scale enterprise platforms.
+            </p>
+            <p>
+              My specialty is turning operational challenges into intuitive digital solutions. Whether it's account management, customer relationship systems, or complex workflow automation, I approach each project with a focus on usability, reliability, and long-term maintainability.
+            </p>
+            <p>
+              When I'm not coding, I'm exploring new technologies and staying current with industry best practices. I'm committed to continuous learning and delivering solutions that exceed expectations.
+            </p>
+          </div>
+          <div class="tech-stack">
+            <div class="tech-title">Core Technologies</div>
+            <div class="tech-tags">
+              <span class="tag">PHP</span>
+              <span class="tag">Laravel</span>
+              <span class="tag">Blade</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Bootstrap</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">Git</span>
+              <span class="tag">RESTful APIs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+          <!-- Account Management -->
+          <div class="project-card">
+            <span class="project-badge">Web Application</span>
+            <h3>Account Management System</h3>
+            <p>
+              A comprehensive role-based account management platform built to streamline customer data, user access controls, and organizational structures. Designed for scalability and ease of administration.
+            </p>
+            <div class="project-meta">
+              <div class="meta-item">
+                <div class="meta-label">Tech Stack</div>
+                <div class="meta-value">PHP, Laravel, Blade, MySQL, JavaScript, Bootstrap</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Role</div>
+                <div class="meta-value">Full-Stack Developer & System Architect</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Impact</div>
+                <div class="meta-value">Reduced account setup time by 60% with intuitive admin interface</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mini CRM -->
+          <div class="project-card">
+            <span class="project-badge">CRM System</span>
+            <h3>Mini CRM</h3>
+            <p>
+              A lightweight yet powerful CRM solution for managing customer interactions, sales pipelines, and business relationships. Focused on usability for small to medium-sized businesses.
+            </p>
+            <div class="project-meta">
+              <div class="meta-item">
+                <div class="meta-label">Tech Stack</div>
+                <div class="meta-value">PHP, Laravel, Blade, MySQL, JavaScript</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Role</div>
+                <div class="meta-value">Frontend & Backend Developer</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Impact</div>
+                <div class="meta-value">Simplified customer tracking with 40% faster data entry</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Process Monitoring -->
+          <div class="project-card">
+            <span class="project-badge">Industry4EIT</span>
+            <h3>Process Monitoring Dashboard</h3>
+            <p>
+              A real-time industrial monitoring dashboard providing operational visibility, process health metrics, and system performance insights. Built for complex industrial workflows and decision-making.
+            </p>
+            <div class="project-meta">
+              <div class="meta-item">
+                <div class="meta-label">Tech Stack</div>
+                <div class="meta-value">JavaScript, Laravel, Data Visualization, HTML/CSS</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Role</div>
+                <div class="meta-label">Dashboard Developer & UX Designer</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Impact</div>
+                <div class="meta-value">Enabled real-time decision making with live operational insights</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Davis Platform -->
+          <div class="project-card">
+            <span class="project-badge">Industry4EIT</span>
+            <h3>Davis Platform</h3>
+            <p>
+              An enterprise-grade business process platform supporting structured workflows, digital automation, and comprehensive management visibility. Built for industrial and organizational scale.
+            </p>
+            <div class="project-meta">
+              <div class="meta-item">
+                <div class="meta-label">Tech Stack</div>
+                <div class="meta-value">Laravel, Blade, MySQL, JavaScript, Bootstrap</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Role</div>
+                <div class="meta-value">Full-Stack Contributor & Implementation Specialist</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Impact</div>
+                <div class="meta-value">Automated critical business processes, improving efficiency by 50%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TihaniCetak -->
+          <div class="project-card">
+            <span class="project-badge">Industry4EIT</span>
+            <h3>TihaniCetak</h3>
+            <p>
+              A service-oriented business platform focused on order management, process tracking, and digital service delivery. Designed for operational teams managing complex service workflows.
+            </p>
+            <div class="project-meta">
+              <div class="meta-item">
+                <div class="meta-label">Tech Stack</div>
+                <div class="meta-value">Laravel, Blade, MySQL, JavaScript, Frontend UI</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Role</div>
+                <div class="meta-label">Application Developer & Workflow Designer</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Impact</div>
+                <div class="meta-value">Streamlined order processing with 35% faster fulfillment</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PBKSB Epic -->
+          <div class="project-card">
+            <span class="project-badge">Industry4EIT</span>
+            <h3>PBKSB Epic</h3>
+            <p>
+              A comprehensive digital transformation platform for industrial workflow coordination and process management. Emphasizes clean user experience and operational reliability.
+            </p>
+            <div class="project-meta">
+              <div class="meta-item">
+                <div class="meta-label">Tech Stack</div>
+                <div class="meta-value">PHP, Laravel, Blade, CSS, JavaScript</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Role</div>
+                <div class="meta-label">Developer & UI/UX Implementation</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Impact</div>
+                <div class="meta-value">Enhanced workflow coordination across teams and departments</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <h2>Experience & Expertise</h2>
+        <div class="experience-timeline">
+          <div class="timeline-item">
+            <div class="role">Full-Stack Developer</div>
+            <h3>Business Applications & Digital Solutions</h3>
+            <p>
+              Designed and developed end-to-end web applications focused on business operations, data management, and workflow automation. Led technical implementation across multiple projects with measurable operational impact.
+            </p>
+          </div>
+          <div class="timeline-item">
+            <div class="role">Enterprise Systems Developer</div>
+            <h3>Industry4EIT Project Suite</h3>
+            <p>
+              Contributed to multiple large-scale digital transformation initiatives for industrial and enterprise clients. Specialized in workflow automation, real-time monitoring, and operational efficiency improvements.
+            </p>
+          </div>
+          <div class="timeline-item">
+            <div class="role">Technical Skills</div>
+            <h3>Architecture & Implementation</h3>
+            <p>
+              Strong foundation in backend architecture, database design, responsive frontend development, and REST API development. Focused on clean code, scalability, and long-term maintainability.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <p><strong>Hassan Absar</strong> | Full-Stack Developer</p>
+      <p>
+        <a href="https://github.com/HassanAbsar" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+        <a href="mailto:hassan@example.com">Email</a>
+      </p>
+      <p style="font-size:0.9rem; margin-top:16px;">
+        © 2024 Hassan Absar. Portfolio and projects showcase.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
