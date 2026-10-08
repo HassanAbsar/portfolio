@@ -6,7 +6,7 @@
 
 **Software that runs the shop floor, the balance sheet and everything in between.**
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-0A1F44?style=for-the-badge&logo=googlechrome&logoColor=white)](https://hassanchugtai.github.io/portfolio)
+[![Portfolio](https://img.shields.io/badge/Portfolio-0A1F44?style=for-the-badge&logo=googlechrome&logoColor=white)](https://hassanabsar.github.io/portfolio)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hassan-absar-a8a043312/)
 [![Email](https://img.shields.io/badge/Email-FFFFFF?style=for-the-badge&logo=gmail&logoColor=0A1F44)](mailto:hassanabsar80@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/HassanAbsar)
@@ -144,7 +144,7 @@ A complete ERP for a plastic manufacturing business covering production, invento
 
 ## 🎓 Education & Certification
 
-- **Bachelor's in Software Engineering**, Virtual University (2020 – 2024)
+- **Bachelor's in Software Engineering**, The Islamia University of Bahawalpur (2020 – 2024)
 - **Claude Code 101**, Anthropic (AI-assisted software engineering)
 
 ---
@@ -160,6 +160,6 @@ A complete ERP for a plastic manufacturing business covering production, invento
 
 Whether you need a custom ERP, a shop-floor MES, or an automation layer that connects your machines to your management team, let's scope a solution that delivers measurable ROI.
 
-📧 [hassanabsar80@gmail.com](mailto:hassanabsar80@gmail.com) · 💼 [LinkedIn](https://www.linkedin.com/in/hassan-absar-a8a043312/) · 🌐 [Portfolio](https://hassanchugtai.github.io/portfolio)
+📧 [hassanabsar80@gmail.com](mailto:hassanabsar80@gmail.com) · 💼 [LinkedIn](https://www.linkedin.com/in/hassan-absar-a8a043312/) · 🌐 [Portfolio](https://hassanabsar.github.io/portfolio)
 
 <sub>Last updated: October 2026</sub>
