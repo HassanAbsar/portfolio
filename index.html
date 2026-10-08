@@ -3,601 +3,933 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hassan Absar | Full-Stack Developer & ERP Solutions</title>
-  <meta name="description" content="Portfolio of Hassan Absar - Full-Stack Developer specializing in web applications, CRM systems, and enterprise solutions for Industry4EIT." />
+  <title>Hassan Absar | Senior Software Engineer · ERP, MES & Industrial Automation</title>
+  <meta name="description" content="Hassan Absar, Senior Software Engineer in Pakistan. 17 systems delivered across ERP, MES, WMS, energy monitoring and education platforms for clients in Malaysia and Pakistan." />
+  <meta name="color-scheme" content="dark" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --bg:#07111f;
-      --text:#e6eefb;
-      --muted:#a6b6cc;
-      --primary:#6cc3ff;
-      --accent:#8ef0c8;
-      --line:rgba(255,255,255,0.09);
+      --bg:#0a1f44;
+      --bg-2:#0c2552;
+      --line:rgba(255,255,255,.12);
+      --line-strong:rgba(255,255,255,.24);
+      --text:#ffffff;
+      --muted:#bccbe4;
+      --dim:#8396bb;
+      --sky:#8fc8ff;
+      --mint:#5ee2b5;
+      --ink:#0a1f44;
+      --ledge:#c6d6ef;
+      --card:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+      --shadow:0 24px 60px rgba(2,9,28,.5);
+      --font:'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      --ease:cubic-bezier(.2,.8,.2,1);
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background:linear-gradient(135deg, #07111f 0%, #0b1628 100%);
-      color:var(--text);
-      line-height:1.6;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;overflow-x:clip}
+    body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.65;overflow-x:clip;-webkit-font-smoothing:antialiased}
+    body::before{
+      content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+      background:
+        radial-gradient(900px 600px at 85% -10%, rgba(143,200,255,.18), transparent 60%),
+        radial-gradient(800px 600px at -10% 45%, rgba(64,120,220,.22), transparent 60%),
+        linear-gradient(180deg,#0a1f44 0%,#081936 55%,#0a1f44 100%);
     }
-    a{color:inherit; text-decoration:none}
-    .container{
-      width:min(1200px, calc(100% - 40px));
-      margin:0 auto;
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+    .wrap{width:min(1200px, calc(100% - 40px));margin:0 auto}
+    .mono{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+    em{font-style:normal;background:linear-gradient(100deg,#ffffff 0%,#8fc8ff 55%,#d6ecff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    ::selection{background:#fff;color:var(--ink)}
+    .progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:200;background:linear-gradient(90deg,#fff,var(--sky));box-shadow:0 0 12px rgba(143,200,255,.7)}
+
+    /* ---------- NAV ---------- */
+    header{position:sticky;top:0;z-index:100;background:rgba(10,31,68,.78);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
+    nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:1.05rem}
+    .brand-mark{
+      width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:#fff;color:var(--ink);font-weight:800;font-size:.95rem;
+      box-shadow:0 4px 0 var(--ledge), 0 12px 24px rgba(0,0,0,.35);transform:perspective(200px) rotateY(-14deg) rotateX(6deg);
     }
-    header{
-      position:sticky;
-      top:0;
-      backdrop-filter:blur(12px);
-      background:rgba(7,17,31,0.8);
-      border-bottom:1px solid var(--line);
-      z-index:100;
+    .links{display:flex;gap:28px}
+    .links a{color:var(--muted);transition:color .25s}
+    .links a span{color:var(--sky);margin-right:6px}
+    .links a:hover{color:#fff}
+    .nav-right{display:flex;align-items:center;gap:18px}
+    .clock{color:var(--muted)}
+    .status{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:#fff;color:var(--ink);box-shadow:0 4px 0 var(--ledge)}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 10px var(--mint);animation:blink 2.2s infinite}
+    .status .dot{background:#16a36b;box-shadow:0 0 8px #16a36b}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+
+    /* ---------- HERO ---------- */
+    .hero{position:relative;padding:110px 0 130px;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;z-index:-1;pointer-events:none}
+    .floor{
+      position:absolute;left:-50%;right:-50%;bottom:0;height:65%;
+      background-image:linear-gradient(rgba(255,255,255,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.13) 1px,transparent 1px);
+      background-size:64px 64px;transform:perspective(520px) rotateX(64deg);transform-origin:50% 100%;
+      -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 45%,#000 80%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 45%,#000 80%,transparent 100%);
+      animation:floor 5s linear infinite;
     }
-    nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      min-height:70px;
+    @keyframes floor{to{background-position:0 64px}}
+    .glow{position:absolute;border-radius:50%;filter:blur(80px)}
+    .g1{width:440px;height:440px;background:rgba(143,200,255,.24);top:-140px;right:4%}
+    .g2{width:380px;height:380px;background:rgba(70,120,255,.22);bottom:8%;left:-120px}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+    .kicker{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--line-strong);color:#fff;margin-bottom:26px}
+    .kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sky);box-shadow:0 0 12px var(--sky)}
+    h1{font-size:clamp(2.5rem,5.3vw,4.3rem);font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:26px}
+    .lead{font-size:1.08rem;color:var(--muted);max-width:590px;margin-bottom:38px}
+    .lead strong{color:#fff;font-weight:600}
+    .actions{display:flex;gap:16px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:14px;font-weight:600;font-size:.95rem;transition:transform .3s var(--ease), box-shadow .3s, background .3s, border-color .3s}
+    .btn .arr{transition:transform .3s var(--ease)}
+    .btn:hover .arr{transform:translateX(4px)}
+    .btn-solid{background:#fff;color:var(--ink);box-shadow:0 6px 0 var(--ledge), 0 20px 40px rgba(0,0,0,.35)}
+    .btn-solid:hover{transform:translateY(-3px);box-shadow:0 9px 0 var(--ledge), 0 26px 50px rgba(0,0,0,.4)}
+    .btn-solid:active{transform:translateY(4px);box-shadow:0 2px 0 var(--ledge), 0 10px 20px rgba(0,0,0,.3)}
+    .btn-line{border:1px solid var(--line-strong);background:rgba(255,255,255,.05);color:#fff}
+    .btn-line:hover{border-color:#fff;transform:translateY(-3px)}
+
+    /* 3D scene */
+    .scene{position:relative;margin:50px 40px 30px;transform-style:preserve-3d}
+    .scene::before{content:"";position:absolute;inset:0;border-radius:22px;background:#051330;transform:translateZ(-28px);box-shadow:0 60px 120px rgba(2,9,28,.7)}
+    .hmi{position:relative;border-radius:22px;background:linear-gradient(160deg,#1a3f80,#0f2a5c);border:1px solid var(--line-strong);box-shadow:inset 0 1px 0 rgba(255,255,255,.2);overflow:hidden}
+    .hmi-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);color:var(--muted)}
+    .hmi-head .ok{color:var(--mint);display:flex;align-items:center;gap:8px}
+    .hmi-body{padding:6px 20px 18px}
+    .hmi-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px dashed var(--line)}
+    .hmi-row:last-of-type{border-bottom:0}
+    .hmi-row .k{color:var(--muted);font-size:.95rem}
+    .hmi-row .v{font-size:1.35rem;font-weight:700}
+    .hmi-row .v.amber{color:var(--sky)}
+    .hmi-row .v.green{color:var(--mint)}
+    .spark{display:block;width:100%;height:70px;margin-top:8px;border-top:1px solid var(--line);padding-top:10px}
+    .hmi-foot{display:flex;justify-content:space-between;color:var(--dim);padding:0 20px 16px}
+    .cube-wrap{--half:48px;position:absolute;top:-78px;right:-34px;width:calc(var(--half)*2);height:calc(var(--half)*2);transform-style:preserve-3d;transform:translateZ(80px)}
+    .cube{width:100%;height:100%;position:relative;transform-style:preserve-3d;animation:spin 16s linear infinite}
+    .f{position:absolute;inset:0;display:grid;place-items:center;border-radius:14px;font-weight:700;font-size:.78rem;color:var(--ink);background:linear-gradient(145deg,#ffffff,#dbe8fb);border:1px solid #fff;backface-visibility:visible}
+    .f:nth-child(even){background:linear-gradient(145deg,#2156ad,#123574);color:#fff;border-color:rgba(255,255,255,.35)}
+    .f1{transform:translateZ(var(--half))}
+    .f2{transform:rotateY(180deg) translateZ(var(--half))}
+    .f3{transform:rotateY(90deg) translateZ(var(--half))}
+    .f4{transform:rotateY(-90deg) translateZ(var(--half))}
+    .f5{transform:rotateX(90deg) translateZ(var(--half))}
+    .f6{transform:rotateX(-90deg) translateZ(var(--half))}
+    @keyframes spin{from{transform:rotateX(-22deg) rotateY(0deg)}to{transform:rotateX(-22deg) rotateY(360deg)}}
+    .chip3d{position:absolute;display:flex;align-items:center;gap:8px;padding:11px 16px;border-radius:14px;background:#fff;color:var(--ink);font-weight:600;font-size:.82rem;white-space:nowrap;box-shadow:0 5px 0 var(--ledge), 0 24px 50px rgba(2,9,28,.5);animation:bob 6s ease-in-out infinite}
+    .c1{left:-44px;top:-26px;transform:translateZ(90px)}
+    .c2{right:-44px;bottom:12%;transform:translateZ(130px);animation-delay:-2s}
+    .c3{left:14%;bottom:-28px;transform:translateZ(70px);animation-delay:-4s;background:var(--sky);box-shadow:0 5px 0 #5e9fde, 0 24px 50px rgba(2,9,28,.5)}
+    @keyframes bob{50%{translate:0 -12px}}
+
+    /* ---------- MARQUEE ---------- */
+    .marquee{background:#fff;width:110%;margin-left:-5%;transform:rotate(-1.6deg);overflow:hidden;padding:18px 0;box-shadow:0 20px 50px rgba(2,9,28,.45);position:relative;z-index:2}
+    .track{display:flex;gap:40px;width:max-content;animation:slide 48s linear infinite}
+    .track span{font-size:1.25rem;font-weight:700;white-space:nowrap;color:var(--ink);letter-spacing:-.01em}
+    .track span i{font-style:normal;color:#3b74d4;margin-left:40px;font-size:.9rem;vertical-align:middle}
+    .marquee:hover .track{animation-play-state:paused}
+    @keyframes slide{to{transform:translateX(-50%)}}
+
+    /* ---------- SECTIONS ---------- */
+    section{padding:110px 0}
+    .sec-head{display:grid;grid-template-columns:200px 1fr;gap:40px;margin-bottom:56px;align-items:start}
+    .sec-label{color:var(--sky);padding-top:12px}
+    .sec-title{font-size:clamp(2rem,4vw,3.1rem);font-weight:800;line-height:1.12;letter-spacing:-.025em}
+    .sec-sub{color:var(--muted);margin-top:14px;max-width:620px}
+    .reveal{opacity:0;translate:0 30px;transition:opacity .9s var(--ease), translate .9s var(--ease)}
+    .reveal.in{opacity:1;translate:0 0}
+
+    /* ---------- 3D TILT ---------- */
+    .tilt{position:relative;transform-style:preserve-3d;transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out, scale .4s var(--ease), box-shadow .4s, background .3s, color .3s}
+    .tilt:hover{scale:1.015}
+    .tilt::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.16),transparent 45%);opacity:0;transition:opacity .35s}
+    .tilt:hover::after{opacity:1}
+    .scene.tilt{transform:perspective(1200px) rotateX(var(--rx,8deg)) rotateY(var(--ry,-16deg));transition:transform .5s var(--ease)}
+    .scene.tilt:hover{scale:1}
+    .scene.tilt::after{display:none}
+
+    .cap,.product,.tk,.cred,.c-item{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+
+    /* ---------- METRICS ---------- */
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .metric{background:#fff;color:var(--ink);border-radius:20px;padding:32px 26px;box-shadow:0 10px 0 var(--ledge), 0 30px 60px rgba(2,9,28,.45)}
+    .metric.tilt::after{background:radial-gradient(380px circle at var(--gx,50%) var(--gy,50%),rgba(10,31,68,.07),transparent 45%)}
+    .metric .n{font-size:clamp(2.6rem,4.4vw,3.6rem);font-weight:800;line-height:1;letter-spacing:-.03em;transform:translateZ(30px)}
+    .metric .n sup{font-size:.5em;color:#3b74d4;vertical-align:top;margin-left:2px}
+    .metric .l{color:#2b4a7e;margin-top:14px;transform:translateZ(18px)}
+    .metric .src{color:#6a7fa3;font-size:.85rem;margin-top:4px}
+
+    /* ---------- CAPABILITIES ---------- */
+    .caps{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .cap{padding:38px}
+    .cap-top{display:flex;justify-content:space-between;align-items:center;color:var(--dim);margin-bottom:18px;transform:translateZ(30px)}
+    .cap-top span:first-child{font-size:2.6rem;font-weight:800;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.6)}
+    .cap h3{font-size:1.5rem;font-weight:700;margin-bottom:10px;transform:translateZ(36px)}
+    .cap p{color:var(--muted);transform:translateZ(18px)}
+    .outcome{margin-top:20px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid var(--line);font-size:.9rem;transform:translateZ(24px)}
+    .outcome b{font-size:.66rem;letter-spacing:.12em;color:var(--mint);font-weight:700;margin-right:8px}
+
+    /* ---------- PRODUCTS ---------- */
+    .products{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .product{border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
+    .shot{height:270px;padding:30px;perspective:900px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 30% 20%,rgba(143,200,255,.28),transparent 60%),linear-gradient(160deg,#173b7e,#0d2758)}
+    .win,.erp{transform:rotateX(18deg) rotateY(-16deg) rotateZ(2deg);transition:transform .8s var(--ease)}
+    .product:hover .win,.product:hover .erp{transform:rotateX(0) rotateY(0) rotateZ(0)}
+    .win{height:100%;border-radius:14px;background:#fff;color:var(--ink);display:flex;flex-direction:column;overflow:hidden;box-shadow:-24px 34px 60px rgba(2,9,28,.55)}
+    .win-bar{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid #e3eaf6}
+    .win-bar i{width:9px;height:9px;border-radius:50%;background:#d5deec}
+    .win-bar i:nth-child(1){background:#ff6b6b}.win-bar i:nth-child(2){background:#ffc94d}.win-bar i:nth-child(3){background:#3ddc84}
+    .camp{display:grid;grid-template-columns:1fr 90px 54px;gap:12px;align-items:center;padding:11px 14px;border-bottom:1px solid #eef2f9;font-size:.8rem}
+    .camp:last-child{border-bottom:0}
+    .camp .nm{font-weight:500}
+    .camp .pb{height:6px;border-radius:999px;background:#e6edf8;overflow:hidden}
+    .camp .pb b{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#1d4a96,#4f8ae6);animation:fill 3.6s var(--ease) infinite alternate}
+    .camp .st{font-size:.64rem;font-weight:700;letter-spacing:.06em;color:#16a36b;text-align:right}
+    @keyframes fill{from{width:8%}to{width:var(--w)}}
+    .erp{display:grid;grid-template-columns:1.2fr .8fr;gap:12px;height:100%}
+    .erp-card{background:#fff;color:var(--ink);border-radius:14px;padding:14px;display:flex;flex-direction:column;box-shadow:-18px 30px 50px rgba(2,9,28,.5)}
+    .erp-card .mono{color:#6a7fa3;font-size:.58rem}
+    .bars{display:flex;align-items:flex-end;gap:7px;flex:1;margin-top:10px}
+    .bars div{flex:1;border-radius:5px 5px 2px 2px;background:linear-gradient(180deg,#1d4a96,#6fa3f0);animation:grow 2.8s var(--ease) infinite alternate}
+    .bars div:nth-child(even){background:linear-gradient(180deg,#8fc8ff,#d6ecff)}
+    @keyframes grow{from{height:25%}to{height:var(--h)}}
+    .bubble{font-size:.72rem;padding:8px 10px;border-radius:10px;margin-top:8px;line-height:1.4}
+    .bubble.q{background:#eef3fb;color:#3b5784;align-self:flex-end}
+    .bubble.a{background:var(--ink);color:#fff}
+    .typing{display:inline-flex;gap:3px;margin-top:8px}
+    .typing i{width:5px;height:5px;border-radius:50%;background:#1d4a96;animation:blink 1s infinite}
+    .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+    .p-body{padding:30px;display:flex;flex-direction:column;flex:1}
+    .p-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+    .tag{padding:6px 12px;border-radius:999px;border:1px solid var(--line-strong);color:var(--muted)}
+    .tag.hot{background:#fff;color:var(--ink);border-color:#fff}
+    .product h3{font-size:1.8rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+    .product p{color:var(--muted);flex:1}
+    .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+    .stack span{font-size:.75rem;font-weight:500;padding:5px 11px;border-radius:8px;background:rgba(255,255,255,.07);border:1px solid var(--line);color:#dbe6f7}
+
+    /* ---------- PROJECT INDEX ---------- */
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+    .filter{padding:10px 18px;border-radius:999px;border:1px solid var(--line-strong);background:rgba(255,255,255,.04);color:var(--muted);font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:all .25s}
+    .filter sup{margin-left:4px;opacity:.7}
+    .filter:hover{color:#fff;border-color:#fff}
+    .filter.active{background:#fff;color:var(--ink);border-color:#fff;box-shadow:0 4px 0 var(--ledge)}
+    .index{display:grid;gap:12px;perspective:1400px}
+    .index-head{display:grid;grid-template-columns:60px 1.6fr 1fr 1fr 40px;gap:20px;padding:0 20px 4px;color:var(--dim)}
+    details.row{background:var(--card);border:1px solid var(--line);border-radius:16px;transition:transform .45s var(--ease), box-shadow .45s, border-color .3s, background .3s}
+    details.row[hidden]{display:none}
+    details.row:hover{transform:translateZ(22px) rotateX(3deg);border-color:var(--line-strong);box-shadow:var(--shadow)}
+    details.row[open]{background:linear-gradient(160deg,rgba(255,255,255,.13),rgba(255,255,255,.04));border-color:rgba(255,255,255,.32);box-shadow:var(--shadow)}
+    details.row summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:60px 1.6fr 1fr 1fr 40px;gap:20px;align-items:center;padding:22px 20px}
+    details.row summary::-webkit-details-marker{display:none}
+    .r-num{color:var(--sky)}
+    .r-name{font-size:1.2rem;font-weight:700;line-height:1.25}
+    .r-name small{display:block;font-size:.85rem;font-weight:400;color:var(--muted);margin-top:2px}
+    .r-sector{color:var(--muted);font-size:.9rem}
+    .r-metric{font-size:.8rem;font-weight:600;color:#fff;background:rgba(143,200,255,.14);border:1px solid rgba(143,200,255,.32);padding:6px 12px;border-radius:999px;justify-self:start}
+    .r-plus{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid var(--line-strong);display:grid;place-items:center;justify-self:end;font-size:1.1rem;transition:transform .4s var(--ease), background .3s, color .3s}
+    details.row[open] .r-plus{transform:rotate(45deg);background:#fff;color:var(--ink)}
+    .r-body{display:grid;grid-template-columns:60px 1fr 1fr;gap:20px;padding:0 20px 28px;animation:open .5s var(--ease)}
+    @keyframes open{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+    .r-body .desc{grid-column:2;color:var(--muted)}
+    .r-body .side{grid-column:3}
+    .impact{padding:14px 16px;border-radius:12px;background:rgba(94,226,181,.08);border:1px solid rgba(94,226,181,.25);font-size:.92rem}
+    .impact b{display:block;font-size:.64rem;letter-spacing:.12em;color:var(--mint);font-weight:700;margin-bottom:4px}
+    .role{margin-top:12px;font-size:.88rem;color:var(--muted)}
+    .role b{color:#fff;font-weight:600}
+
+    /* ---------- EXPERIENCE ---------- */
+    .ledger{display:grid;gap:20px;perspective:1400px}
+    .entry{display:grid;grid-template-columns:200px 1fr 1.3fr;gap:36px;padding:34px;border-radius:20px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .5s var(--ease), border-color .3s}
+    .entry:hover{transform:translateZ(24px) rotateX(3deg);border-color:var(--line-strong)}
+    .entry .when{color:var(--muted)}
+    .entry .when .now{display:inline-flex;align-items:center;gap:8px;margin-top:6px;color:var(--mint)}
+    .entry h3{font-size:1.5rem;font-weight:700;line-height:1.2}
+    .entry .title{color:var(--sky);margin-top:6px}
+    .entry ul{list-style:none;display:grid;gap:10px}
+    .entry li{color:var(--muted);padding-left:22px;position:relative}
+    .entry li::before{content:"→";position:absolute;left:0;color:var(--sky)}
+    .entry li b{color:#fff;font-weight:600}
+    .entry:first-child{background:#fff;color:var(--ink);box-shadow:0 10px 0 var(--ledge), 0 30px 60px rgba(2,9,28,.45);border-color:#fff}
+    .entry:first-child .when,.entry:first-child li{color:#3b5784}
+    .entry:first-child li b{color:var(--ink)}
+    .entry:first-child .title{color:#1d4a96}
+    .entry:first-child li::before{color:#3b74d4}
+    .entry:first-child .now{color:#16a36b}
+
+    /* ---------- TOOLKIT ---------- */
+    .toolkit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .tk{padding:30px}
+    .tk h4{color:var(--sky);margin-bottom:16px;transform:translateZ(24px)}
+    .tk ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;transform:translateZ(14px)}
+    .tk li{padding:6px 13px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-size:.86rem;transition:background .25s,color .25s,translate .25s}
+    .tk li:hover{background:#fff;color:var(--ink);translate:0 -2px}
+    .creds{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+    .cred{padding:28px;display:flex;gap:20px;align-items:center}
+    .cred .ic{width:58px;height:58px;flex:none;border-radius:16px;background:#fff;color:var(--ink);display:grid;place-items:center;font-weight:800;font-size:1.3rem;box-shadow:0 6px 0 var(--ledge);transform:translateZ(36px)}
+    .cred h4{font-size:1.15rem;font-weight:700}
+    .cred p{color:var(--muted);font-size:.92rem;margin-top:4px}
+
+    /* ---------- CONTACT ---------- */
+    .contact{padding:130px 0}
+    .contact h2{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:800;line-height:1.06;letter-spacing:-.035em;max-width:900px}
+    .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+    .c-item{padding:28px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .c-item:hover{background:#fff;color:var(--ink);box-shadow:0 8px 0 var(--ledge), 0 30px 60px rgba(2,9,28,.45)}
+    .c-item .mono{display:block;color:var(--sky);margin-bottom:6px}
+    .c-item:hover .mono{color:#1d4a96}
+    .c-item .val{font-weight:600;word-break:break-word}
+    .c-item .arr{font-size:1.4rem;transition:translate .35s var(--ease)}
+    .c-item:hover .arr{translate:4px -4px}
+
+    footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim)}
+    .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width:1024px){
+      .hero-grid{grid-template-columns:1fr;gap:40px}
+      .scene{margin:80px 50px 40px}
+      .sec-head{grid-template-columns:1fr;gap:10px}
+      .metrics{grid-template-columns:repeat(2,1fr)}
+      .products{grid-template-columns:1fr}
+      .toolkit{grid-template-columns:repeat(2,1fr)}
+      .entry{grid-template-columns:1fr;gap:14px}
+      .index-head{display:none}
+      details.row summary{grid-template-columns:40px 1fr 34px;gap:12px}
+      .r-sector,.r-metric{grid-column:2}
+      .r-plus{grid-row:1;grid-column:3}
+      .r-body{grid-template-columns:1fr}
+      .r-body .desc,.r-body .side{grid-column:1}
     }
-    .logo{
-      font-weight:800;
-      font-size:1.1rem;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
+    @media (max-width:760px){
+      .links,.clock{display:none}
+      .hero{padding:70px 0 100px}
+      section{padding:80px 0}
+      .scene{margin:80px 16px 40px}
+      .cube-wrap{--half:34px;top:-64px;right:-6px}
+      .chip3d{font-size:.72rem;padding:8px 12px}
+      .c1{left:-6px;top:-30px}
+      .c2{right:-8px}
+      .caps,.creds,.contact-grid,.toolkit{grid-template-columns:1fr}
+      .cap,.tk{padding:28px}
+      .shot{height:230px;padding:20px}
+      .contact{padding:96px 0}
     }
-    .nav-links{
-      display:flex;
-      gap:32px;
-      font-size:0.95rem;
-      color:var(--muted);
+    @media (max-width:480px){
+      .status .label{display:none}
+      .metrics{grid-template-columns:1fr}
     }
-    .nav-links a:hover{
-      color:var(--primary);
-      transition:color 0.3s ease;
-    }
-    section{
-      padding:80px 0;
-      border-bottom:1px solid var(--line);
-    }
-    section:last-child{
-      border-bottom:none;
-    }
-    h2{
-      font-size:clamp(2rem, 5vw, 3.2rem);
-      letter-spacing:-0.05em;
-      margin:0 0 40px;
-      background:linear-gradient(135deg, var(--text), var(--primary));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      background-clip:text;
-    }
-    .hero{
-      padding:120px 0 80px;
-    }
-    .hero-content{
-      max-width:800px;
-    }
-    .tagline{
-      color:var(--accent);
-      text-transform:uppercase;
-      letter-spacing:0.12em;
-      font-size:0.85rem;
-      font-weight:700;
-      margin-bottom:20px;
-    }
-    .hero h1{
-      font-size:clamp(3rem, 7vw, 5rem);
-      line-height:1.1;
-      margin:0 0 24px;
-      letter-spacing:-0.08em;
-    }
-    .hero-subtitle{
-      font-size:1.15rem;
-      color:var(--muted);
-      margin-bottom:32px;
-      line-height:1.7;
-    }
-    .cta-buttons{
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-      margin-bottom:60px;
-    }
-    .btn{
-      display:inline-block;
-      padding:14px 28px;
-      border-radius:10px;
-      font-weight:700;
-      border:2px solid transparent;
-      cursor:pointer;
-      transition:all 0.3s ease;
-      text-align:center;
-      font-size:0.95rem;
-    }
-    .btn-primary{
-      background:linear-gradient(135deg, var(--primary), #4ea8de);
-      color:#04131d;
-    }
-    .btn-primary:hover{
-      transform:translateY(-3px);
-      box-shadow:0 12px 32px rgba(108, 195, 255, 0.3);
-    }
-    .btn-secondary{
-      background:transparent;
-      border-color:var(--line);
-      color:var(--text);
-    }
-    .btn-secondary:hover{
-      border-color:var(--primary);
-      color:var(--primary);
-    }
-    .stats-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:24px;
-      margin-top:60px;
-    }
-    .stat-card{
-      background:rgba(19, 39, 63, 0.5);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:24px;
-      text-align:center;
-    }
-    .stat-number{
-      font-size:2.5rem;
-      font-weight:800;
-      color:var(--primary);
-      margin-bottom:8px;
-    }
-    .stat-label{
-      color:var(--muted);
-      font-size:0.9rem;
-    }
-    .about-grid{
-      display:grid;
-      grid-template-columns:1.2fr 0.8fr;
-      gap:48px;
-      align-items:start;
-    }
-    .about-text{
-      display:grid;
-      gap:16px;
-    }
-    .about-text p{
-      color:var(--muted);
-      font-size:1rem;
-      line-height:1.8;
-    }
-    .tech-stack{
-      background:rgba(19, 39, 63, 0.5);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:32px;
-    }
-    .tech-title{
-      color:var(--accent);
-      text-transform:uppercase;
-      letter-spacing:0.1em;
-      font-size:0.8rem;
-      font-weight:700;
-      margin-bottom:16px;
-    }
-    .tech-tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-    }
-    .tag{
-      background:rgba(108, 195, 255, 0.15);
-      border:1px solid rgba(108, 195, 255, 0.3);
-      color:var(--primary);
-      padding:8px 14px;
-      border-radius:999px;
-      font-size:0.85rem;
-      font-weight:600;
-    }
-    .projects-grid{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:32px;
-    }
-    .project-card{
-      background:linear-gradient(135deg, rgba(19, 39, 63, 0.6), rgba(12, 21, 33, 0.8));
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:32px;
-      transition:all 0.3s ease;
-      display:flex;
-      flex-direction:column;
-    }
-    .project-card:hover{
-      transform:translateY(-8px);
-      border-color:var(--primary);
-      box-shadow:0 20px 48px rgba(108, 195, 255, 0.15);
-    }
-    .project-badge{
-      display:inline-block;
-      background:rgba(142, 240, 200, 0.15);
-      border:1px solid rgba(142, 240, 200, 0.3);
-      color:var(--accent);
-      padding:6px 12px;
-      border-radius:999px;
-      font-size:0.75rem;
-      font-weight:700;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      width:fit-content;
-      margin-bottom:12px;
-    }
-    .project-card h3{
-      font-size:1.6rem;
-      margin:12px 0 12px 0;
-      letter-spacing:-0.03em;
-    }
-    .project-card p{
-      color:var(--muted);
-      margin:0 0 20px;
-      flex-grow:1;
-      line-height:1.7;
-    }
-    .project-meta{
-      display:grid;
-      gap:14px;
-      border-top:1px solid var(--line);
-      padding-top:20px;
-    }
-    .meta-item{
-      display:grid;
-      gap:4px;
-    }
-    .meta-label{
-      font-size:0.75rem;
-      text-transform:uppercase;
-      letter-spacing:0.08em;
-      color:var(--primary);
-      font-weight:700;
-    }
-    .meta-value{
-      color:var(--muted);
-      font-size:0.95rem;
-    }
-    .experience-timeline{
-      display:grid;
-      gap:24px;
-    }
-    .timeline-item{
-      background:rgba(19, 39, 63, 0.5);
-      border-left:4px solid var(--primary);
-      border-radius:12px;
-      padding:24px;
-      transition:all 0.3s ease;
-    }
-    .timeline-item:hover{
-      background:rgba(19, 39, 63, 0.7);
-      transform:translateX(8px);
-    }
-    .timeline-item .role{
-      color:var(--accent);
-      text-transform:uppercase;
-      font-size:0.75rem;
-      font-weight:700;
-      letter-spacing:0.08em;
-      margin-bottom:8px;
-    }
-    .timeline-item h3{
-      font-size:1.3rem;
-      margin:0 0 8px;
-    }
-    .timeline-item p{
-      color:var(--muted);
-      margin:0;
-      line-height:1.7;
-    }
-    footer{
-      padding:40px 0;
-      border-top:1px solid var(--line);
-      text-align:center;
-      color:var(--muted);
-    }
-    footer a{
-      color:var(--primary);
-    }
-    footer a:hover{
-      text-decoration:underline;
-    }
-    @media (max-width:768px){
-      .stats-grid, .projects-grid, .about-grid{
-        grid-template-columns:1fr;
-      }
-      .nav-links{
-        display:none;
-      }
-      .hero-content{
-        max-width:100%;
-      }
-      h2{
-        font-size:1.8rem;
-      }
-      section{
-        padding:60px 0;
-      }
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none!important;transition:none!important}
+      .reveal{opacity:1;translate:0 0}
+      html{scroll-behavior:auto}
     }
   </style>
 </head>
 <body>
+  <div class="progress" id="progress"></div>
+
   <header>
-    <div class="container">
+    <div class="wrap">
       <nav>
-        <div class="logo">Hassan Absar</div>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
+        <a href="#top" class="brand"><span class="brand-mark">HA</span>Hassan Absar</a>
+        <div class="links mono">
+          <a href="#capabilities"><span>01</span>Capabilities</a>
+          <a href="#products"><span>02</span>Products</a>
+          <a href="#work"><span>03</span>Work</a>
+          <a href="#experience"><span>04</span>Experience</a>
+        </div>
+        <div class="nav-right">
+          <a href="#contact" class="status mono"><span class="dot"></span><span class="label">Open to work</span></a>
         </div>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
+  <main id="top">
+
+    <!-- ================= HERO ================= -->
     <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <div class="tagline">Full-Stack Developer • Business Solutions • ERP</div>
-          <h1>Crafting reliable digital systems that power business operations.</h1>
-          <p class="hero-subtitle">
-            I build scalable web applications, enterprise dashboards, and operational platforms that help teams manage workflows, improve efficiency, and drive growth. Specialized in PHP/Laravel, CRM systems, and Industry4EIT solutions.
+      <div class="hero-bg" aria-hidden="true"><div class="floor"></div><span class="glow g1"></span><span class="glow g2"></span></div>
+      <div class="wrap hero-grid">
+        <div>
+          <p class="kicker mono">Senior Software Engineer</p>
+          <h1>Software that runs the <em>shop floor</em>, the <em>balance sheet</em> and everything in between.</h1>
+          <p class="lead">
+            I design and deliver <strong>ERP, MES, WMS and enterprise platforms</strong> for manufacturers and organisations across Malaysia and Pakistan, connecting machines, data and people so leadership can make faster, better-informed decisions.
           </p>
-          <div class="cta-buttons">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+          <div class="actions">
+            <a href="#work" class="btn btn-solid">View the work <span class="arr">→</span></a>
+            <a href="#contact" class="btn btn-line">Start a conversation <span class="arr">→</span></a>
           </div>
-          <div class="stats-grid">
-            <div class="stat-card">
-              <div class="stat-number">6+</div>
-              <div class="stat-label">Production Projects</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Business Impact</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">50K+</div>
-              <div class="stat-label">Lines of Code</div>
-            </div>
+        </div>
+
+        <div class="scene" id="scene">
+          <div class="cube-wrap" aria-hidden="true"><div class="cube"><div class="f f1">Laravel</div><div class="f f2">PHP</div><div class="f f3">MySQL</div><div class="f f4">MQTT</div><div class="f f5">Node-RED</div><div class="f f6">React</div></div></div>
+          <aside class="hmi" aria-label="Career snapshot">
+          <div class="hmi-head mono">
+            <span>career.snapshot</span>
+            <span class="ok"><span class="dot"></span>Online</span>
           </div>
+          <div class="hmi-body">
+            <div class="hmi-row"><span class="k">Machines integrated</span><span class="v amber">165+</span></div>
+            <div class="hmi-row"><span class="k">Energy meters on MQTT</span><span class="v">600+</span></div>
+            <div class="hmi-row"><span class="k">Systems delivered</span><span class="v">17</span></div>
+            <div class="hmi-row"><span class="k">Markets served</span><span class="v green">MY · PK</span></div>
+            <canvas class="spark" id="spark" aria-hidden="true"></canvas>
+          </div>
+          <div class="hmi-foot mono"><span>Laravel · Node-RED · MQTT</span><span>v4.0</span></div>
+        </aside>
+          <div class="chip3d c1" aria-hidden="true">⚡ Real-time IoT</div>
+          <div class="chip3d c2" aria-hidden="true">📊 OEE Reporting</div>
+          <div class="chip3d c3" aria-hidden="true">🔗 165+ Machines</div>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="container">
-        <h2>About Me</h2>
-        <div class="about-grid">
-          <div class="about-text">
-            <p>
-              I'm a full-stack developer with a passion for solving real business problems through clean code and thoughtful design. Over the years, I've worked on diverse projects ranging from small CRM systems to large-scale enterprise platforms.
-            </p>
-            <p>
-              My specialty is turning operational challenges into intuitive digital solutions. Whether it's account management, customer relationship systems, or complex workflow automation, I approach each project with a focus on usability, reliability, and long-term maintainability.
-            </p>
-            <p>
-              When I'm not coding, I'm exploring new technologies and staying current with industry best practices. I'm committed to continuous learning and delivering solutions that exceed expectations.
-            </p>
-          </div>
-          <div class="tech-stack">
-            <div class="tech-title">Core Technologies</div>
-            <div class="tech-tags">
-              <span class="tag">PHP</span>
-              <span class="tag">Laravel</span>
-              <span class="tag">Blade</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Bootstrap</span>
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">Git</span>
-              <span class="tag">RESTful APIs</span>
-            </div>
-          </div>
+    <!-- ================= MARQUEE ================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="track" id="track">
+        <span>Sonyu Plastic<i>◆</i></span><span>PBKSB-EPIC<i>◆</i></span><span>Davis<i>◆</i></span><span>Tihani Cetak<i>◆</i></span><span>PNA<i>◆</i></span><span>Zenig<i>◆</i></span><span>Daepac<i>◆</i></span><span>3D Gens<i>◆</i></span><span>UCS<i>◆</i></span><span>Xanders<i>◆</i></span><span>Finsalera<i>◆</i></span><span>IoT SATA<i>◆</i></span><span>Sherwani ERP<i>◆</i></span><span>Bulk Email Sender<i>◆</i></span>
+      </div>
+    </div>
+
+    <!-- ================= METRICS ================= -->
+    <section style="padding:90px 0">
+      <div class="wrap">
+        <div class="metrics reveal">
+          <div class="metric"><div class="n"><span data-count="4">0</span><sup>+</sup></div><div class="l mono">Years in delivery</div><div class="src">Since 2022, junior to senior</div></div>
+          <div class="metric"><div class="n"><span data-count="17">0</span></div><div class="l mono">Systems shipped</div><div class="src">ERP, MES, WMS, LMS, web & products</div></div>
+          <div class="metric"><div class="n"><span data-count="165">0</span><sup>+</sup></div><div class="l mono">Machines connected</div><div class="src">Across 5 manufacturing platforms</div></div>
+          <div class="metric"><div class="n"><span data-count="600">0</span><sup>+</sup></div><div class="l mono">Live energy meters</div><div class="src">Real-time billing via MQTT</div></div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="container">
-        <h2>Featured Projects</h2>
-        <div class="projects-grid">
-          <!-- Account Management -->
-          <div class="project-card">
-            <span class="project-badge">Web Application</span>
-            <h3>Account Management System</h3>
-            <p>
-              A comprehensive role-based account management platform built to streamline customer data, user access controls, and organizational structures. Designed for scalability and ease of administration.
-            </p>
-            <div class="project-meta">
-              <div class="meta-item">
-                <div class="meta-label">Tech Stack</div>
-                <div class="meta-value">PHP, Laravel, Blade, MySQL, JavaScript, Bootstrap</div>
-              </div>
-              <div class="meta-item">
-                <div class="meta-label">Role</div>
-                <div class="meta-value">Full-Stack Developer & System Architect</div>
-              </div>
-              <div class="meta-item">
-                <div class="meta-label">Impact</div>
-                <div class="meta-value">Reduced account setup time by 60% with intuitive admin interface</div>
-              </div>
-            </div>
+    <!-- ================= CAPABILITIES ================= -->
+    <section id="capabilities">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-label mono">01 / Capabilities</span>
+          <div>
+            <h2 class="sec-title">What I bring to <em>your</em> operation.</h2>
+            <p class="sec-sub">Four ways I create business value, each tied to an outcome leadership can measure.</p>
           </div>
-
-          <!-- Mini CRM -->
-          <div class="project-card">
-            <span class="project-badge">CRM System</span>
-            <h3>Mini CRM</h3>
-            <p>
-              A lightweight yet powerful CRM solution for managing customer interactions, sales pipelines, and business relationships. Focused on usability for small to medium-sized businesses.
-            </p>
-            <div class="project-meta">
-              <div class="meta-item">
-                <div class="meta-label">Tech Stack</div>
-                <div class="meta-value">PHP, Laravel, Blade, MySQL, JavaScript</div>
-              </div>
-              <div class="meta-item">
-                <div class="meta-label">Role</div>
-                <div class="meta-value">Frontend & Backend Developer</div>
-              </div>
-              <div class="meta-item">
-                <div class="meta-label">Impact</div>
-                <div class="meta-value">Simplified customer tracking with 40% faster data entry</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Process Monitoring -->
-          <div class="project-card">
-            <span class="project-badge">Industry4EIT</span>
-            <h3>Process Monitoring Dashboard</h3>
-            <p>
-              A real-time industrial monitoring dashboard providing operational visibility, process health metrics, and system performance insights. Built for complex industrial workflows and decision-making.
-            </p>
-            <div class="project-meta">
-              <div class="meta-item">
-                <div class="meta-label">Tech Stack</div>
-                <div class="meta-value">JavaScript, Laravel, Data Visualization, HTML/CSS</div>
-              </div>
-              <div class="meta-item">
-                <div class="meta-label">Role</div>
-                <div class="meta-label">Dashboard Developer & UX Designer</div>
-              </div>
-              <div class="meta-item">
-                <div class="meta-label">Impact</div>
-                <div class="meta-value">Enabled real-time decision making with live operational insights</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Davis Platform -->
-          <div class="project-card">
-            <span class="project-badge">Industry4EIT</span>
-            <h3>Davis Platform</h3>
-            <p>
-              An enterprise-grade business process platform supporting structured workflows, digital automation, and comprehensive management visibility. Built for industrial and organizational scale.
-            </p>
-            <div class="project-meta">
-              <div class="meta-item">
-                <div class="meta-label">Tech Stack</div>
-                <div class="meta-value">Laravel, Blade, MySQL, JavaScript, Bootstrap</div>
-              </div>
-              <div class="meta-item">
-                <div class="meta-label">Role</div>
-                <div class="meta-value">Full-Stack Contributor & Implementation Specialist</div>
-              </div>
-              <div class="meta-item">
-                <div class="meta-label">Impact</div>
-                <div class="meta-value">Automated critical business processes, improving efficiency by 50%</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- TihaniCetak -->
-          <div class="project-card">
-            <span class="project-badge">Industry4EIT</span>
-            <h3>TihaniCetak</h3>
-            <p>
-              A service-oriented business platform focused on order management, process tracking, and digital service delivery. Designed for operational teams managing complex service workflows.
-            </p>
-            <div class="project-meta">
-              <div class="meta-item">
-                <div class="meta-label">Tech Stack</div>
-                <div class="meta-value">Laravel, Blade, MySQL, JavaScript, Frontend UI</div>
-              </div>
-              <div class="meta-item">
-                <div class="meta-label">Role</div>
-                <div class="meta-label">Application Developer & Workflow Designer</div>
-              </div>
-              <div class="meta-item">
-                <div class="meta-label">Impact</div>
-                <div class="meta-value">Streamlined order processing with 35% faster fulfillment</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- PBKSB Epic -->
-          <div class="project-card">
-            <span class="project-badge">Industry4EIT</span>
-            <h3>PBKSB Epic</h3>
-            <p>
-              A comprehensive digital transformation platform for industrial workflow coordination and process management. Emphasizes clean user experience and operational reliability.
-            </p>
-            <div class="project-meta">
-              <div class="meta-item">
-                <div class="meta-label">Tech Stack</div>
-                <div class="meta-value">PHP, Laravel, Blade, CSS, JavaScript</div>
-              </div>
-              <div class="meta-item">
-                <div class="meta-label">Role</div>
-                <div class="meta-label">Developer & UI/UX Implementation</div>
-              </div>
-              <div class="meta-item">
-                <div class="meta-label">Impact</div>
-                <div class="meta-value">Enhanced workflow coordination across teams and departments</div>
-              </div>
-            </div>
-          </div>
+        </div>
+        <div class="caps reveal">
+          <article class="cap">
+            <div class="cap-top mono"><span>01</span><span>ERP · WMS · HR</span></div>
+            <h3>Digitise core operations</h3>
+            <p>Custom ERP, warehouse and HR platforms covering inventory, finance, procurement, payroll and reporting, replacing spreadsheets and paper with one source of truth.</p>
+            <div class="outcome"><b>OUTCOME</b>Lower administrative overhead and audit-ready data.</div>
+          </article>
+          <article class="cap">
+            <div class="cap-top mono"><span>02</span><span>MES · IIoT</span></div>
+            <h3>Connect the shop floor</h3>
+            <p>Machine integration with Node-RED and MQTT for real-time, two-way data and control, powering live OEE dashboards and production reporting.</p>
+            <div class="outcome"><b>OUTCOME</b>Real-time production visibility and faster corrective action.</div>
+          </article>
+          <article class="cap">
+            <div class="cap-top mono"><span>03</span><span>Integrations</span></div>
+            <h3>Unify the business ecosystem</h3>
+            <p>Secure integrations with payment gateways (PayPal, Stripe), banking (MCB, 1Link), accounting (AutoCount), Google Maps, attendance machines and printers.</p>
+            <div class="outcome"><b>OUTCOME</b>No double entry, and systems that work together.</div>
+          </article>
+          <article class="cap">
+            <div class="cap-top mono"><span>04</span><span>Delivery</span></div>
+            <h3>Ship with discipline</h3>
+            <p>Agile/Scrum delivery with backlog ownership, user stories, documentation, CI/CD pipelines and AWS or Linux deployment, keeping stakeholders informed at every sprint.</p>
+            <div class="outcome"><b>OUTCOME</b>Predictable releases and maintainable code.</div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
+    <!-- ================= PRODUCTS ================= -->
+    <section id="products">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-label mono">02 / Own Products</span>
+          <div>
+            <h2 class="sec-title">Built from zero. <em>Owned</em> end to end.</h2>
+            <p class="sec-sub">Independent products I conceived, architected and shipped, from first prompt to working software.</p>
+          </div>
+        </div>
+
+        <div class="products">
+          <!-- Bulk Email Sender -->
+          <article class="product reveal">
+            <div class="shot" aria-hidden="true">
+              <div class="win">
+                <div class="win-bar"><i></i><i></i><i></i></div>
+                <div class="camp"><span class="nm">Q4 Product Launch</span><span class="pb"><b style="--w:96%"></b></span><span class="st">SENT</span></div>
+                <div class="camp"><span class="nm">Client Newsletter</span><span class="pb"><b style="--w:72%"></b></span><span class="st">72%</span></div>
+                <div class="camp"><span class="nm">Re-engagement Series</span><span class="pb"><b style="--w:48%"></b></span><span class="st">48%</span></div>
+                <div class="camp"><span class="nm">Event Invitations</span><span class="pb"><b style="--w:24%"></b></span><span class="st">QUEUED</span></div>
+              </div>
+            </div>
+            <div class="p-body">
+              <div class="p-meta mono"><span class="tag hot">Desktop Product</span><span class="tag">Marketing Automation</span></div>
+              <h3>Bulk Email Sender</h3>
+              <p>A desktop email marketing application that lets sales and marketing teams run high-volume campaigns from a single interface. I took it from concept to a working product, using AI-assisted development to compress the build cycle.</p>
+              <div class="stack"><span>React</span><span>Node.js</span><span>Desktop</span><span>Email Campaigns</span><span>AI-Assisted Build</span></div>
+            </div>
+          </article>
+
+          <!-- Sherwani ERP -->
+          <article class="product reveal">
+            <div class="shot" aria-hidden="true">
+              <div class="erp">
+                <div class="erp-card">
+                  <span class="mono">Profit &amp; Loss · Monthly</span>
+                  <div class="bars">
+                    <div style="--h:55%"></div><div style="--h:70%"></div><div style="--h:48%"></div><div style="--h:82%"></div><div style="--h:64%"></div><div style="--h:92%"></div>
+                  </div>
+                </div>
+                <div class="erp-card">
+                  <span class="mono">AI Assistant</span>
+                  <div class="bubble q">Production this week?</div>
+                  <div class="bubble a">Summary ready ✓</div>
+                  <div class="typing"><i></i><i></i><i></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="p-body">
+              <div class="p-meta mono"><span class="tag hot">Freelance ERP</span><span class="tag">Plastic Manufacturing</span></div>
+              <h3>Sherwani ERP</h3>
+              <p>A complete ERP for a plastic manufacturing business covering production, inventory, salary management and profit & loss reporting, with an integrated Gemini-powered AI assistant built into the workflow.</p>
+              <div class="stack"><span>ERP</span><span>Production</span><span>Inventory</span><span>Payroll</span><span>P&amp;L Reports</span><span>Gemini AI</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECT INDEX ================= -->
+    <section id="work">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-label mono">03 / Client Work</span>
+          <div>
+            <h2 class="sec-title">The project <em>index</em>.</h2>
+            <p class="sec-sub">Fifteen client engagements across manufacturing, energy, education, hospitality and finance. Select any row for the full brief.</p>
+          </div>
+        </div>
+
+        <div class="filters reveal" role="tablist" aria-label="Filter projects">
+          <button class="filter active" data-f="all">All<sup></sup></button>
+          <button class="filter" data-f="mes">MES &amp; IoT<sup></sup></button>
+          <button class="filter" data-f="erp">ERP &amp; Finance<sup></sup></button>
+          <button class="filter" data-f="edu">Education<sup></sup></button>
+          <button class="filter" data-f="web">Web &amp; Frontend<sup></sup></button>
+        </div>
+
+        <div class="index reveal">
+          <div class="index-head mono"><span>No.</span><span>Project</span><span>Sector</span><span>Key figure</span><span></span></div>
+
+          <details class="row" data-cat="mes">
+            <summary><span class="r-num mono">01</span><span class="r-name">Sonyu Plastic<small>Manufacturing Execution System</small></span><span class="r-sector">Plastics manufacturing · Malaysia</span><span class="r-metric">60 machines</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Delivered the operator- and supervisor-facing layer of a custom MES: interactive production dashboards and real-time data displays fed by 60 integrated machines, with automated OEE and summary reporting. Designed a responsive, intuitive UI built for the realities of the factory floor.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>Live production visibility and automated OEE insight in place of manual tracking.</div>
+                <p class="role"><b>Role:</b> Frontend & Dashboard Developer</p>
+                <div class="stack"><span>Laravel</span><span>JavaScript</span><span>jQuery</span><span>Bootstrap</span><span>OEE</span></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="row" data-cat="mes">
+            <summary><span class="r-num mono">02</span><span class="r-name">PBKSB-EPIC<small>Energy Monitoring & Billing</small></span><span class="r-sector">Energy & utilities</span><span class="r-metric">600+ meters</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Built an energy monitoring platform that ingests real-time consumption data from more than 600 meters over MQTT. Delivered live monitoring, dynamic per-customer billing and automated billing reports.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>Raw meter telemetry turned into accurate, auditable billing data, improving operational transparency and efficiency.</div>
+                <p class="role"><b>Role:</b> Full-Stack Developer</p>
+                <div class="stack"><span>MQTT</span><span>Laravel</span><span>PHP</span><span>Real-time</span><span>Billing Engine</span></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="row" data-cat="mes erp">
+            <summary><span class="r-num mono">03</span><span class="r-name">Davis<small>ERP & MES Platform</small></span><span class="r-sector">Manufacturing · Malaysia</span><span class="r-metric">25+ machines</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Built full CRUD modules and user-friendly frontend components for an enterprise ERP/MES platform, integrated 25+ machines, and generated key management reports including OEE Summary, Inventory Balance and production metrics.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>Production and inventory data unified into decision-ready management reporting.</div>
+                <p class="role"><b>Role:</b> Full-Stack Developer</p>
+                <div class="stack"><span>Laravel</span><span>PHP</span><span>SQL</span><span>JavaScript</span><span>Reporting</span></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="row" data-cat="mes">
+            <summary><span class="r-num mono">04</span><span class="r-name">Tihani Cetak<small>Bilingual MES & WMS</small></span><span class="r-sector">Manufacturing · Malaysia</span><span class="r-metric">30 machines · 2 languages</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Delivered a bilingual (Bahasa Malaysia / English) MES and WMS with a dynamic language-conversion library, CRUD modules across production and warehousing, real-time sync from 30 machines, and AutoCount API integration for financial and inventory data.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>Operations and accounting kept in sync without manual re-entry, and the system accessible to the whole workforce in their preferred language.</div>
+                <p class="role"><b>Role:</b> Full-Stack Developer</p>
+                <div class="stack"><span>Laravel</span><span>AutoCount API</span><span>i18n</span><span>WMS</span><span>jQuery</span></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="row" data-cat="mes erp">
+            <summary><span class="r-num mono">05</span><span class="r-name">PNA<small>MES & ERP with Machine Control</small></span><span class="r-sector">Manufacturing · Malaysia</span><span class="r-metric">30+ machines · 2-way</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Integrated 30+ industrial machines through Node-RED for real-time, two-way data exchange and control. Built frontend and backend modules for production workflows, inventory management and operational reporting.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>Machine-level automation linked directly to business workflows, covering control as well as monitoring.</div>
+                <p class="role"><b>Role:</b> Full-Stack Developer</p>
+                <div class="stack"><span>Node-RED</span><span>Laravel</span><span>PHP</span><span>Industrial Automation</span></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="row" data-cat="mes erp">
+            <summary><span class="r-num mono">06</span><span class="r-name">Zenig<small>ERP, MES & HR / Payroll</small></span><span class="r-sector">Manufacturing · Malaysia</span><span class="r-metric">20+ machines · payroll</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Owned the HR module, including an automated payroll engine with Malaysian tax calculations. Integrated 20+ industrial machines via Node-RED and contributed to core modules across manufacturing, HR and finance.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>A compliance-sensitive payroll process automated, cutting manual HR effort and calculation risk.</div>
+                <p class="role"><b>Role:</b> Full-Stack Developer · HR Module Owner</p>
+                <div class="stack"><span>Laravel</span><span>Node-RED</span><span>Payroll</span><span>Tax Logic</span></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="row" data-cat="mes">
+            <summary><span class="r-num mono">07</span><span class="r-name">Daepac<small>MES & WMS</small></span><span class="r-sector">Manufacturing · Malaysia</span><span class="r-metric">Hardware → API pipeline</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Integrated shop-floor hardware using Node-RED to stream real-time data into a Linux-based server with exposed APIs. Developed and maintained frontend and backend modules across production and warehouse operations.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>A reliable hardware-to-software data pipeline underpinning day-to-day production and warehousing.</div>
+                <p class="role"><b>Role:</b> Full-Stack Developer</p>
+                <div class="stack"><span>Node-RED</span><span>Linux</span><span>REST APIs</span><span>Laravel</span><span>jQuery</span></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="row" data-cat="erp">
+            <summary><span class="r-num mono">08</span><span class="r-name">3D Gens<small>Enterprise ERP</small></span><span class="r-sector">Enterprise · Malaysia</span><span class="r-metric">HR · Inventory · Finance</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Designed dynamic forms and user interfaces across HR, inventory and finance modules of a Laravel-based ERP, improving usability, responsiveness and user interaction throughout the enterprise environment.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>Faster, cleaner everyday workflows for ERP users across departments.</div>
+                <p class="role"><b>Role:</b> Frontend Developer</p>
+                <div class="stack"><span>Laravel</span><span>Bootstrap</span><span>JavaScript</span><span>jQuery</span></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="row" data-cat="edu">
+            <summary><span class="r-num mono">09</span><span class="r-name">UCS LMS<small>Learning Management System</small></span><span class="r-sector">Education · Multi-branch</span><span class="r-metric">Oracle ↔ MySQL</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Built academic modules (Gradebooks, Lesson Plans, Homework APIs) and role-based dashboards for administrators, teachers and students across a large multi-branch network. Delivered Oracle-MySQL integrations, fee management, student transfers and bulk export tools for high-volume student records.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>Academic and administrative workflows streamlined at network scale, with better system performance and scalability.</div>
+                <p class="role"><b>Role:</b> Full-Stack Developer</p>
+                <div class="stack"><span>Laravel</span><span>Oracle</span><span>MySQL</span><span>REST APIs</span><span>RBAC</span></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="row" data-cat="edu web">
+            <summary><span class="r-num mono">10</span><span class="r-name">UCS Website<small>WordPress Platform</small></span><span class="r-sector">Education</span><span class="r-metric">Security hardened</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Delivered backend enhancements, PHP-based API modifications and custom modules for dynamic data handling. Integrated protective scripts to mitigate malicious attacks and kept performance smooth across the platform.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>A more stable and secure high-visibility public website.</div>
+                <p class="role"><b>Role:</b> Backend Developer</p>
+                <div class="stack"><span>WordPress</span><span>PHP</span><span>APIs</span><span>Security</span></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="row" data-cat="erp">
+            <summary><span class="r-num mono">11</span><span class="r-name">Xanders<small>Restaurant Management System</small></span><span class="r-sector">Hospitality · Pakistan</span><span class="r-metric">Inventory · Finance · WMS</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Full-stack development across inventory, finance and daily operations, including warehouse management, dynamic PDF generation for official documents and print-ready cheque formats that print directly onto company cheques.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>Back-office finance and stock control digitised end to end.</div>
+                <p class="role"><b>Role:</b> Full-Stack Developer</p>
+                <div class="stack"><span>PHP</span><span>JavaScript</span><span>jQuery</span><span>PDF Generation</span></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="row" data-cat="erp">
+            <summary><span class="r-num mono">12</span><span class="r-name">Finsalera<small>Financial Management System</small></span><span class="r-sector">Finance · SMEs</span><span class="r-metric">Cash-flow visibility</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Built a finance and inventory management platform for SMEs, handling frontend and backend: transactional forms, financial reports and real-time dashboards.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>Clearer cash-flow tracking and faster financial decision-making for small businesses.</div>
+                <p class="role"><b>Role:</b> Full-Stack Developer</p>
+                <div class="stack"><span>PHP</span><span>SQL</span><span>JavaScript</span><span>Dashboards</span></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="row" data-cat="web">
+            <summary><span class="r-num mono">13</span><span class="r-name">IoT SATA<small>Corporate Website</small></span><span class="r-sector">IoT technology · Malaysia</span><span class="r-metric">End-to-end build</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Designed and built the official website for an IoT solutions company: fully responsive frontend, PHP-driven dynamic content sections, and a focus on performance, accessibility and brand identity.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>A professional digital storefront that presents the company's products and technology vision.</div>
+                <p class="role"><b>Role:</b> Frontend Developer</p>
+                <div class="stack"><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>JavaScript</span><span>PHP</span></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="row" data-cat="web">
+            <summary><span class="r-num mono">14</span><span class="r-name">Local Business Websites<small>Multi-client Web Delivery</small></span><span class="r-sector">Retail, logistics, services · Pakistan</span><span class="r-metric">Multiple clients</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Designed and built custom websites for Pakistani businesses in retail, manufacturing, logistics and services: responsive landing pages, service catalogs and contact portals, each tailored to the client's commercial goals.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>A stronger web presence, brand consistency and wider customer reach for each client.</div>
+                <p class="role"><b>Role:</b> Frontend Developer</p>
+                <div class="stack"><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>JavaScript</span><span>PHP</span></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="row" data-cat="web">
+            <summary><span class="r-num mono">15</span><span class="r-name">Spin<small>JavaScript Library Customisation</small></span><span class="r-sector">Frontend engineering</span><span class="r-metric">Minified codebase</span><span class="r-plus">+</span></summary>
+            <div class="r-body">
+              <p class="desc">Reverse-engineered a minified, obfuscated open-source spinner and animation library, then modified its core behaviour, appearance and integration logic to meet project requirements.</p>
+              <div class="side">
+                <div class="impact"><b>BUSINESS IMPACT</b>The required UI behaviour delivered without rebuilding from scratch, saving time and cost.</div>
+                <p class="role"><b>Role:</b> Frontend Developer</p>
+                <div class="stack"><span>JavaScript</span><span>Reverse Engineering</span><span>UI Animation</span></div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
     <section id="experience">
-      <div class="container">
-        <h2>Experience & Expertise</h2>
-        <div class="experience-timeline">
-          <div class="timeline-item">
-            <div class="role">Full-Stack Developer</div>
-            <h3>Business Applications & Digital Solutions</h3>
-            <p>
-              Designed and developed end-to-end web applications focused on business operations, data management, and workflow automation. Led technical implementation across multiple projects with measurable operational impact.
-            </p>
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-label mono">04 / Experience</span>
+          <div>
+            <h2 class="sec-title">A career that <em>compounds</em>.</h2>
+            <p class="sec-sub">From remote junior developer to senior engineer, with each role adding scope, ownership and business impact.</p>
           </div>
-          <div class="timeline-item">
-            <div class="role">Enterprise Systems Developer</div>
-            <h3>Industry4EIT Project Suite</h3>
-            <p>
-              Contributed to multiple large-scale digital transformation initiatives for industrial and enterprise clients. Specialized in workflow automation, real-time monitoring, and operational efficiency improvements.
-            </p>
+        </div>
+
+        <div class="ledger">
+          <div class="entry reveal">
+            <div class="when mono">Sep 2025 – Present<br/><span class="now"><span class="dot"></span>Current</span></div>
+            <div>
+              <h3>Beaconhouse Group</h3>
+              <p class="title mono">Senior Software Engineer · Pakistan</p>
+            </div>
+            <ul>
+              <li>Leading full-stack development of enterprise-scale applications with a focus on <b>scalability, reliability and maintainability</b>.</li>
+              <li>Building academic and administrative platforms including <b>LMS modules, Oracle-MySQL integrations</b> and high-volume data tooling.</li>
+            </ul>
           </div>
-          <div class="timeline-item">
-            <div class="role">Technical Skills</div>
-            <h3>Architecture & Implementation</h3>
-            <p>
-              Strong foundation in backend architecture, database design, responsive frontend development, and REST API development. Focused on clean code, scalability, and long-term maintainability.
-            </p>
+
+          <div class="entry reveal">
+            <div class="when mono">Mar 2023 – Jul 2025<br/>2 yrs 5 mos</div>
+            <div>
+              <h3>Industry 4 EIT Solutions</h3>
+              <p class="title mono">Laravel Developer · Pakistan</p>
+            </div>
+            <ul>
+              <li>Delivered MES, ERP and WMS platforms for Malaysian manufacturers: <b>Sonyu Plastic, Davis, Daepac, PNA, Tihani Cetak, Zenig</b> and more.</li>
+              <li>Connected <b>165+ industrial machines</b> and <b>600+ energy meters</b> using Node-RED and MQTT.</li>
+              <li>Integrated payments, banking and accounting systems: <b>PayPal, Stripe, MCB, 1Link, AutoCount</b>.</li>
+            </ul>
           </div>
+
+          <div class="entry reveal">
+            <div class="when mono">Jul 2022 – Feb 2023<br/>Remote</div>
+            <div>
+              <h3>IoT SATA SDN BHD</h3>
+              <p class="title mono">Laravel Developer · Malaysia (remote)</p>
+            </div>
+            <ul>
+              <li>Designed and built the company's <b>corporate website</b> end to end, responsive and performance-optimised.</li>
+              <li>Built PHP-driven dynamic content management for marketing agility.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TOOLKIT ================= -->
+    <section id="toolkit">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-label mono">05 / Toolkit</span>
+          <div>
+            <h2 class="sec-title">The stack behind <em>the results</em>.</h2>
+          </div>
+        </div>
+
+        <div class="toolkit reveal">
+          <div class="tk"><h4 class="mono">Backend</h4><ul><li>PHP</li><li>Laravel</li><li>Node.js</li><li>.NET Web Forms</li><li>REST APIs</li><li>Runtime APIs</li><li>Sanctum</li><li>Passport</li></ul></div>
+          <div class="tk"><h4 class="mono">Frontend</h4><ul><li>JavaScript</li><li>React</li><li>Angular</li><li>jQuery</li><li>AJAX</li><li>HTML5</li><li>CSS3</li><li>Bootstrap 5</li><li>Tailwind</li></ul></div>
+          <div class="tk"><h4 class="mono">Data</h4><ul><li>MySQL</li><li>Oracle</li><li>Oracle ↔ MySQL</li><li>JSON</li><li>OEE Reporting</li><li>PDF Generation</li></ul></div>
+          <div class="tk"><h4 class="mono">Industrial IoT</h4><ul><li>Node-RED</li><li>MQTT</li><li>Machine Integration</li><li>ZKTeco Attendance</li><li>Printer Integration</li></ul></div>
+          <div class="tk"><h4 class="mono">Integrations</h4><ul><li>Stripe</li><li>PayPal</li><li>MCB Bank</li><li>1Link</li><li>AutoCount</li><li>Google Maps API</li><li>Gemini AI</li></ul></div>
+          <div class="tk"><h4 class="mono">Cloud & Delivery</h4><ul><li>AWS</li><li>Linux Deployment</li><li>CI/CD</li><li>Git</li><li>Bitbucket</li><li>Scrum</li><li>Jira</li><li>Asana</li><li>ClickUp</li></ul></div>
+        </div>
+
+        <div class="creds">
+          <div class="cred reveal">
+            <span class="ic">B.</span>
+            <div>
+              <h4>Bachelor's in Software Engineering</h4>
+              <p>The Islamia University of Bahawalpur · 2020 – 2024</p>
+            </div>
+          </div>
+          <div class="cred reveal">
+            <span class="ic">C.</span>
+            <div>
+              <h4>Claude Code 101</h4>
+              <p>Anthropic · AI-assisted software engineering</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <p class="kicker mono reveal">06 / Contact</p>
+        <h2 class="reveal">Let's build what your operation needs <em>next</em>.</h2>
+        <div class="contact-grid reveal">
+          <a class="c-item" href="mailto:hassanabsar80@gmail.com"><div><span class="mono">Email</span><span class="val">hassanabsar80@gmail.com</span></div><span class="arr">↗</span></a>
+          <a class="c-item" href="https://www.linkedin.com/in/hassan-absar-a8a043312/" target="_blank" rel="noopener noreferrer"><div><span class="mono">LinkedIn</span><span class="val">in/hassan-absar</span></div><span class="arr">↗</span></a>
+          <a class="c-item" href="tel:+923305072611"><div><span class="mono">Phone</span><span class="val">+92 330 5072611</span></div><span class="arr">↗</span></a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer id="contact">
-    <div class="container">
-      <p><strong>Hassan Absar</strong> | Full-Stack Developer</p>
-      <p>
-        <a href="https://github.com/HassanAbsar" target="_blank" rel="noopener noreferrer">GitHub</a> • 
-        <a href="mailto:hassan@example.com">Email</a>
-      </p>
-      <p style="font-size:0.9rem; margin-top:16px;">
-        © 2024 Hassan Absar. Portfolio and projects showcase.
-      </p>
+  <footer>
+    <div class="wrap foot mono">
+      <span>© 2026 Hassan Absar</span>
+      <span>Senior Software Engineer · Pakistan</span>
+      <a href="#top">Back to top ↑</a>
     </div>
   </footer>
+
+  <script>
+    // Scroll progress
+    const bar = document.getElementById('progress');
+    addEventListener('scroll', () => {
+      const d = document.documentElement;
+      bar.style.width = (d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + '%';
+    }, { passive: true });
+
+
+    // Duplicate marquee for a seamless loop
+    const track = document.getElementById('track');
+    track.innerHTML += track.innerHTML;
+
+    // Reveal on scroll
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Counters
+    const cio = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, end = +el.dataset.count, t0 = performance.now(), dur = 1700;
+      const step = now => {
+        const p = Math.min((now - t0) / dur, 1);
+        el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step); cio.unobserve(el);
+    }), { threshold: .6 });
+    document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+    // Project filters with live counts
+    const rows = [...document.querySelectorAll('details.row')];
+    const filters = [...document.querySelectorAll('.filter')];
+    filters.forEach(b => {
+      const f = b.dataset.f;
+      b.querySelector('sup').textContent = f === 'all' ? rows.length : rows.filter(r => r.dataset.cat.split(' ').includes(f)).length;
+      b.addEventListener('click', () => {
+        filters.forEach(x => x.classList.toggle('active', x === b));
+        rows.forEach(r => {
+          const show = f === 'all' || r.dataset.cat.split(' ').includes(f);
+          r.hidden = !show;
+          if (!show) r.open = false;
+        });
+      });
+    });
+
+    // Sparkline (decorative signal)
+    const cv = document.getElementById('spark');
+    const ctx = cv.getContext('2d');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let pts = [], W, H;
+    const size = () => {
+      const dpr = devicePixelRatio || 1;
+      W = cv.clientWidth; H = cv.clientHeight - 10;
+      cv.width = W * dpr; cv.height = (H + 10) * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const n = Math.ceil(W / 6) + 2;
+      while (pts.length < n) pts.push(pts.length ? clamp(pts[pts.length - 1] + (Math.random() - .45) * .18) : .5);
+      pts = pts.slice(-n);
+    };
+    const clamp = v => Math.max(.1, Math.min(.9, v));
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H + 10);
+      const g = ctx.createLinearGradient(0, 0, 0, H + 10);
+      g.addColorStop(0, 'rgba(143,200,255,.35)'); g.addColorStop(1, 'rgba(143,200,255,0)');
+      ctx.beginPath();
+      pts.forEach((p, i) => { const x = i * 6, y = 10 + (1 - p) * H; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
+      ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 1.6; ctx.stroke();
+      ctx.lineTo((pts.length - 1) * 6, H + 10); ctx.lineTo(0, H + 10); ctx.closePath();
+      ctx.fillStyle = g; ctx.fill();
+    };
+    size(); draw();
+    addEventListener('resize', () => { size(); draw(); });
+    if (!reduce) setInterval(() => { pts.shift(); pts.push(clamp(pts[pts.length - 1] + (Math.random() - .45) * .18)); draw(); }, 120);
+    // 3D tilt
+    const canHover = matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const setTilt = (el, x, y, max, bx, by) => {
+      el.style.setProperty('--rx', (bx + (.5 - y) * max).toFixed(2) + 'deg');
+      el.style.setProperty('--ry', (by + (x - .5) * max).toFixed(2) + 'deg');
+      el.style.setProperty('--gx', (x * 100) + '%');
+      el.style.setProperty('--gy', (y * 100) + '%');
+    };
+    const clearTilt = el => ['--rx', '--ry'].forEach(p => el.style.removeProperty(p));
+    document.querySelectorAll('.cap,.product,.metric,.tk,.cred,.c-item').forEach(el => {
+      el.classList.add('tilt');
+      if (!canHover || reduce) return;
+      el.addEventListener('pointermove', e => {
+        const r = el.getBoundingClientRect();
+        setTilt(el, (e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height, 10, 0, 0);
+      });
+      el.addEventListener('pointerleave', () => clearTilt(el));
+    });
+    const scene = document.getElementById('scene');
+    const hero = document.querySelector('.hero');
+    scene.classList.add('tilt');
+    if (canHover && !reduce) {
+      hero.addEventListener('pointermove', e => {
+        const r = hero.getBoundingClientRect();
+        setTilt(scene, (e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height, 18, 8, -16);
+      });
+      hero.addEventListener('pointerleave', () => clearTilt(scene));
+    }
+  </script>
 </body>
 </html>
